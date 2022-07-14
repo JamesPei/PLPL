@@ -27,6 +27,13 @@ public:
         return std::shared_ptr<Identifier>();
     };
 
+    void print_table(){
+        for(auto m = table_.begin(); m!=table_.end(); ++m){
+            std::cout << "Token:" << m->first->to_string() << " Identifier:" << m->second->to_string() << "\n";
+        }
+        std::cout << std::endl;
+    };
+
 protected:
     std::shared_ptr<Environment> previous_;
 private:

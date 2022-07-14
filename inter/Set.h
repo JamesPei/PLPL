@@ -6,13 +6,13 @@
 class Set : public Statement {
  public:
   static std::shared_ptr<Set> create(std::shared_ptr<Identifier> id, std::shared_ptr<Expression> expr){
-    return std::make_shared<Set>(id, expr);
+      return std::make_shared<Set>(id, expr);
   };
 
-  Set(std::shared_ptr<Identifier> id, std::shared_ptr<Expression> expr){
-    if (!check(id_->type(), expr_->type())) {
-        error("type error");
-    }
+  Set(std::shared_ptr<Identifier> id, std::shared_ptr<Expression> expr):id_(id), expr_(expr){
+      if (!check(id_->type(), expr_->type())) {
+          error("type error");
+      }
   };
 
   ~Set(){};

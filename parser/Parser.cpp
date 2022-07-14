@@ -39,6 +39,7 @@ shared_ptr<Statement> Parser::block(){
     shared_ptr<Environment> saved_environment = top_;
     top_ = make_shared<Environment>(top_);
     decls();
+    // top_->print_table();
     auto stmts = statements();
     match('}');
     top_ = saved_environment;
